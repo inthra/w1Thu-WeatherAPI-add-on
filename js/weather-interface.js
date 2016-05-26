@@ -12,19 +12,19 @@ $(document).ready(function(){
 
     var requestedWeather = new Weather();
 
-    $.get(requestedWeather.getWeather(city)).then(function(response) {
+    var showWeather = function(response) {
       $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%.");
-    }).fail(function(error) {
-      $('.showWeather').text(error.responseJSON.message);
-    });
+    };
 
-    $.get(requestedWeather.getForecast(city)).then(function(response) {
+    var showForecast = function(response) {
       $('.showForecast').append("The 5-day forecast for humidity in " + city + " is:");
       for (var i = 0; i <= 4; i++) {
         $('.showForecast').append("<li>" + "Day " + (i + 1) + ": " + response.list[i].main.humidity + "%" + "</li>");
       }
-    }).fail(function(error) {
-      $('.showForecast').text(error.responseJSON.message);
-    });
+    };
+
+    requestedWeather.getWeather(city, showWeather);
+    requestedWeather.getForecast(city, showForecast);
+
   });
 });

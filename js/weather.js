@@ -17,13 +17,21 @@ Weather.prototype.fahrenheitConversion = function() {
 };
 
 //method for returning current weather for user inputted location (city)
-Weather.prototype.getWeather = function(city) {
-  return 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey;
+Weather.prototype.getWeather = function(city, showFunction) {
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
+    showFunction(response);
+  }).fail(function(error) {
+    $('.showWeather').text(error.responseJSON.message);
+  });
 };
 
 //method for returning forecasted weather for user inputted location (city)
-Weather.prototype.getForecast = function(city) {
-  return 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
+Weather.prototype.getForecast = function(city, showFunction) {
+  $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey).then(function(response) {
+    showFunction(response);
+  }).fail(function(error) {
+    $('.showForecast').text(error.responseJSON.message);
+  });
 };
 
 //exporting is required for using Weather object in -interface.js files

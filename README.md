@@ -43,7 +43,7 @@ _If a bug is found, please let me know via Github. Feel free to contact me with 
 * _Github_
 * _Atom text editor_
 * _JavaScript_
-* _Node.js - including npm and bower_
+* _Node.js - including npm, bower, and sass_
 
 ### License
 
