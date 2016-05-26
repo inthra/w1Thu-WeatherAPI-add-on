@@ -1,14 +1,14 @@
-var apiKey = require('./../.env').apiKey; //allows for use of API key (in hidden .env file) to be used
-var Weather = require('./../js/weather.js').Weather; //allows for Weather object to be imported and used (after being exported in weather.js)
+var apiKey = require('./../.env').apiKey;
+var Weather = require('./../js/weather.js').Weather;
 
 $(document).ready(function(){
 
-  var requestedWeather = new Weather(); //creates a new instance of Weather object
+  var requestedWeather = new Weather();
 
 //Fahrenheit--------------------------------------------------------------------
   $('#fahrenheit').click(function(){
-    var city = $('#location').val(); //user inputted location from weather.html
-    $('#location').val(""); //clears the text entry after click
+    var city = $('#location').val();
+    $('#location').val("");
     $('.showWeather').text("The city you have chosen is " + city + ".");
 
     var functionCurrentFahrenheit = function(response) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
       for (var i = 0; i <= 4; i++) {
         requestedWeather.kelvin = response.list[i].main.temp;
         $('.showForecast').append("<li>" + "Day " + (i + 1) + ": " + requestedWeather.fahrenheitConversion() + "°F" + "</li>");
-      };
+      }
     };
 
     requestedWeather.getCurrentWeather(city, functionCurrentFahrenheit);
@@ -46,7 +46,7 @@ $(document).ready(function(){
       for (var i = 0; i <= 4; i++) {
         requestedWeather.kelvin = response.list[i].main.temp;
         $('.showForecast').append("<li>" + "Day " + (i + 1) + ": " + requestedWeather.celciusConversion() + "°C" + "</li>");
-      };
+      }
     };
 
     requestedWeather.getCurrentWeather(city, functionCurrentCelcius);
