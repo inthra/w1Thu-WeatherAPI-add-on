@@ -17,7 +17,7 @@ Weather.prototype.fahrenheitConversion = function() {
 };
 
 //method for returning current weather for user inputted location (city)
-Weather.prototype.getWeather = function(city, showFunction) {
+Weather.prototype.getCurrentWeather = function(city, showFunction) {
   $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
     showFunction(response);
   }).fail(function(error) {
@@ -26,7 +26,7 @@ Weather.prototype.getWeather = function(city, showFunction) {
 };
 
 //method for returning forecasted weather for user inputted location (city)
-Weather.prototype.getForecast = function(city, showFunction) {
+Weather.prototype.getFiveDayForecast = function(city, showFunction) {
   $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey).then(function(response) {
     showFunction(response);
   }).fail(function(error) {
