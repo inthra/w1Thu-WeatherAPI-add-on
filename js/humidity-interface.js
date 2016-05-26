@@ -27,6 +27,10 @@ $(document).ready(function(){
 
     requestedWeather.getCurrentWeather(city, functionCurrentHumidity); //functionCurrentHumidity gets sent to weather.js in the getCurrentWeather method and is then named "showFunction"
     requestedWeather.getFiveDayForecast(city, functionForecastHumidity);
+    requestedWeather.getCoordinates(city);
+    console.log(requestedWeather.coordinateLatLong[0]);
+    console.log(requestedWeather.coordinateLatLong[1]);
+    console.log(requestedWeather.coordinateLatLong[2]);
 
   });
 });

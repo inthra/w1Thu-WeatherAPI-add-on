@@ -2,7 +2,7 @@ var apiKey = require('./../.env').apiKey; //allows for use of API key (in hidden
 
 var Weather = function() { //Weather object
   this.kelvin = undefined; //property of Weather object that will get temp from API call (look at requestedWeather.kelvin in temperature-interface.js)
-  this.coordinateLatLong = [37.42,-122.08,2];
+  this.coordinateLatLong = [37.42,-122.08,8];
 };
 
 //temp converted to C and limited to 2 decimal places

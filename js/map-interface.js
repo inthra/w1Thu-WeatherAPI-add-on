@@ -7,7 +7,7 @@ $(document).ready(function() {
   function initialize() {
     var mapProp = {
       center:new google.maps.LatLng(requestedWeather.coordinateLatLong[0],requestedWeather.coordinateLatLong[1]),
-      zoom:2,
+      zoom:requestedWeather.coordinateLatLong[2],
       mapTypeId:google.maps.MapTypeId.ROADMAP
     };
     var map=new google.maps.Map(document.getElementById("weatherLocation"),mapProp);
